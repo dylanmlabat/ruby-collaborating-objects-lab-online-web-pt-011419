@@ -11,21 +11,21 @@ class Artist
     self.songs << song
   end
   
-  def self.all
-    @@all
-  end
-  
   def save
     @@all << self
+  end
+  
+  def self.all
+    @@all
   end
   
   def self.find(name)
     @@all.find{|artist| artist.name == name}
   end
-
+  
   def self.create(name)
-    artist = self.new(name)
-    @@all << artist
+    artist = Artist.new(name)
+    artist.save
     artist
   end
   
